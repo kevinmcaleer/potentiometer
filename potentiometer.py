@@ -18,4 +18,7 @@ while True:
 
     pot_value = pot.read_u16()
     percentage = map(pot_value,288, 65535,0,100)
-    print("Percentage:", percentage, "Raw, ", pot_value)
+    
+    led_value = map(percentage,0,100,0,65535)
+    print("Percentage:", percentage, "Raw, ", pot_value, "led value",led_value)
+    led.duty_u16(led_value)
